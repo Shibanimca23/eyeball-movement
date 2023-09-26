@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Movement</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+        .container{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+        }
+        .eye{
+            width: 240px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            display: inline-block;
+            margin: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        .eyeball{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            border: 10px solid #333;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="eye">
+            <div class="eyeball" id="eyeball1"></div>
+        </div>
+        <div class="eye">
+            <div class="eyeball" id="eyeball2"></div>
+        </div>
+    </div>
+    <script>
+        let eyeball1=document.getElementById("eyeball1");
+        let eyeball2=document.getElementById("eyeball2");
+        document.addEventListener("mousemove",(event)=>{
+            var x=event.clientX *100 / window.innerWidth +"%";
+            var y=event.clientY *100 /window.innerHeight +"%";
+            eyeball1.style.left=x;
+            eyeball1.style.top=y;
+            eyeball2.style.left=x;
+            eyeball2.style.top=y;
+            console.log(event)
+        // console.log("positionX=",event.clientX)
+        // console.log("positionY=",event.clientY)
+        
+        })
+        
+        
+    </script>
+</body>
+</html>
+
+
+
